@@ -17,7 +17,64 @@ input {
     box-sizing: border-box;
 }
 
+.rounded-border {
+    /* border-style: solid;
+    border-width: 2px;
+    border-color: black; 
+     forme abrégé suivante: 
+     */
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 100%;
+    margin: 5px 0px;
+}
+/* 
+select{}
+ Manquait celui-ci pour que la boite de choix mode soit en dessous et 100% width 
+ */
+
+select {
+    width:100%;
+}
+
+#login-name, #login-pass {
+    background-color: #ffffe0;
+}
+
+#login-submit {
+    background-color: rgb(0, 150, 0);
+    color: white;
+    font-size: medium;
+}
+
+#login-submit:hover {
+    background-color: rgb(0, 170, 0);
+    color: white;
+    font-size: large;
+}
+
+#logoff-reminder {
+    text-align: center;
+}
+
+
 /* Sélecteurs multiples pour l'élément <input> */
+
+input[type="submit"] {
+
+}
+
+#form-container  .rounded-border  #login-submit {
+
+}
+
+#form-title + #login-submit {
+
+}
+
+.rounded-border:not(#login-name, #login-pass, #login-mode, #logoff-reminder) {
+
+}
 
 /* Pour tester */
 .a_remplacer {
@@ -25,3 +82,9 @@ input {
 }
 
 /* Exercice supplémentaire */
+
+li:hover::marker {
+    content: "★ ";
+    color: rgb(197, 145, 14);
+    font-size: 20px;
+}
