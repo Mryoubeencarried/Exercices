@@ -3,7 +3,9 @@
     margin: 0 auto;
     max-width: 75%;
     gap: 1rem;
+    /* Defini 2 colonnes de 3fr et 1fr */
     grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+    /* Défini comment va être fill les deux colonnes du template. Donc top-bar top-bar pour le header (est juste le top bar), et main-content(3fr) aside(1fr) pour le reste de la page. (text + menu) */
     grid-template-areas:
         "top-bar top-bar"
         "main-content aside";
@@ -83,6 +85,7 @@ li a {
     text-decoration: none;
 }
 
+/* Les @media xxx changent le comportement css lorsque la condition est respecté, donc il suffi d'ajuster pour avoir le css désiré (ajouter/modifier/retirer des éléments) selon les conditions. */
 
 @media print {
 
@@ -93,3 +96,43 @@ li a {
         border: none;
     }
 }
+
+@media screen and (max-width:800px) {
+
+    #container {
+        max-width: 100%;
+        gap: 1rem;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "top-bar"
+            "aside"
+            "main-content";
+    }
+   
+    #page-nav {
+        grid-area: aside;
+        position: relative;
+    }
+
+    #page-nav, #page-nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        border-left: none;
+
+    }
+    
+}
+
+@media screen and (max-width:450px) {
+
+    #search-bar,
+    #page-nav {
+        display: none;
+    }
+
+    figure {
+        margin: 0px;
+    }
+}
+

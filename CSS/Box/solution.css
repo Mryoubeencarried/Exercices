@@ -93,6 +93,8 @@ body {
     box-sizing: border-box;
 }
 
+/* Pourquoi le .intern prend la priorité sur le .position?  moi j'ai fait 2 différent pour être sur de pas aovir de conflit */
+
 .intern {
     background-color: var(--intern-color);
 }

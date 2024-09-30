@@ -1,0 +1,5 @@
+Questions:
+
+1 . CSS: Spéficités des sélecteurs, je comprend pas trop (css bos, voir .position et .intern)
+
+2. @media querys et leur fonction?

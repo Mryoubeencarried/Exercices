@@ -6,19 +6,28 @@
     --highlight-color: #a8a8a8;
     --employee-color: #ffa500;
     --intern-color: lightgreen;
-    --gap-size: 1em;
+    --gap-size: 1em;  
+    /* 1em defini le gap par défault du browser, soit celui ou il sera égal partout */
 }
 
 body {
+    color: var(--text-color);
     font-size: large;
+    background-color: var(--background-color);
 }
 
 #main-container {
-    gap: var(--gap-size);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-size);   
 }
 
 #top-bar {
-    border: 1px solid;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid var(--border-color);
     padding: 5px;
 }
 
@@ -28,17 +37,23 @@ body {
 }
 
 #main-area {
+    /* padding-top: var(--gap-size); pas bon, avais juste a mettre le main container en flex columns pour avoir le padding, ce que j'avais pas fait */
     gap: var(--gap-size);
+    display: grid;
+    /* grid-template-columns: minmax(450px, 1fr) minmax(450px, 1fr) minmax(450px, 1fr);  EXO 1 reponse --  peut etre écrit repeat(3, minmax(450px, 1fr));*/
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
 }
 
 .employee-card {
-    border: 2px solid;
+    display: flex;
+    position:relative;
     border-radius: 10px;
+    border: 2px solid var(--border-color);
+    background-color: var(--base-color);
 }
 
 .employee-card:hover {
-    /* à remplacer */
-    background-color: green;
+    background-color: var(--highlight-color);
 }
 
 .employee-card:hover button {
@@ -51,9 +66,17 @@ body {
     height: 40px;
     padding: 0;
     border-radius: 50%;
+
+    position: absolute;
+    right: 0px;
+    top: 0px;
 }
 
 .employee-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
     margin: 5px;
 }
 
@@ -67,6 +90,15 @@ body {
     padding: 5px;
     text-align: center;
     box-sizing: border-box;
+    width: 100%;
+}
+
+.employee {
+    background-color: var(--employee-color);
+}
+
+.intern {
+    background-color: var(--intern-color);
 }
 
 .bold {
