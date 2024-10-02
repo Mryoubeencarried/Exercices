@@ -21,7 +21,20 @@
  *  info() retourne l'information de la voiture dans le format suivant : "make model : year"
  */
 function CarFactory(make) {
-    return { };
+    let count = 0;
+    return { 
+        make: make,
+        carsBuilt: () => count,
+        carBuilder: (model) => (year) => { const car = {
+            make: make,
+            model: model,
+            year: year,
+            info() {return `${this.make} ${this.model} : ${this.year}`},
+            count: count += 1,
+        };
+           return car;
+        }
+    };
 }
 
 /// Exemples d'utilisation
@@ -56,3 +69,8 @@ console.log(newFordFocus.year); // 2023
 console.log(newFordFocus.info()); // Ford Focus : 2019
 /// Question : pourquoi est-ce que le nom est-il toujours Ford Focus : 2019
 /// Comment peut-on règler ce problème ?
+// 
+// Réponse:  Utiliser une fonction normale avec this au lieu de arrowfunction qui ne peux pas utiliser de this.
+// The issue with your code lies in the way the info method of the car object is defined. 
+// Specifically, the info() method is using the originally captured values of make, model, and year from when the car object was first created. 
+// Even though you modify the year property of the car through CarUpgrader, the info() method still returns the old value because it is using a closure over the original values. 

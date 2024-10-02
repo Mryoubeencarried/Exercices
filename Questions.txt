@@ -1,5 +1,11 @@
 Questions:
 
-1 . CSS: Spéficités des sélecteurs, je comprend pas trop (css bos, voir .position et .intern)
+1 . CSS: Spéficités des sélecteurs, je comprend pas trop (css box, voir .position et .intern)
 
 2. @media querys et leur fonction?
+
+3. Concept de fermeture et portée (p.36-38 JS). Closures ==  créé un nouveau uniqueptr avec la valeur de(s) variables?
+
+4. Pas sur de comprendre la solution no.2 de buttonhandler
+
+5. Expliquer chaine de prototype shape.JS dernier numero
