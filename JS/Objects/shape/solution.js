@@ -15,7 +15,7 @@ console.log(ellipse.describe()); // valeur désirée : red ellipse
 /// Partie 2 : Factory
 function RectangleFactory(obj, width, height) {
     return {
-        ...obj,
+        ...obj,   /** ... = operatuer spread qui copy les elements de lobjet */
         width,
         height,
         getArea: function () { return this.width * this.height }

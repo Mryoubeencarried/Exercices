@@ -17,12 +17,12 @@ console.log(ellipse.getType()); // valeur désirée : ellipseconst newRectangle 
 console.log(ellipse.describe()); // valeur désirée : red ellipse
 
 /* Partie 2 : Factory
-    Implémenter RectangleFactory qui retourne un nouveau objet de type Object 
+    Implémenter RectangleFactory qui retourne un nouveau objet de type Object (ET NON SHAPE)
     qui contient tout ce que le paramètre obj contient déjà 
     ainsi que les propriétés width, height et la fonction getArea()
 */
 function RectangleFactory(obj, width, height) {
-    const newRectangle = Object.create(obj);  // Créé un nouvel objet avec les ancients attributs
+    const newRectangle = Object.create(obj);  // Créé un nouvel objet avec les ancients attributs, mais en dessous du prototype shape
     newRectangle.width = width;               // Ajoute les attributs en paramètre
     newRectangle.height = height;
     newRectangle.getArea = function() { return this.width * this.height; } // Ajoute la nouvelle fonction

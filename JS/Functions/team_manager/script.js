@@ -16,7 +16,7 @@ function loadTeams() {
     const listItems = document.getElementsByClassName("team");
     for (var i = 0; i < listItems.length; i++) {             
         listItems[i].addEventListener("click", (e) => {      
-            e.target.textContent = teams[i];
+            e.target.textContent = teams[i]; /** iteration qui configure le click, et non sur le click */
         });
     }
     document.getElementById("team-loader").disabled = true;
@@ -29,7 +29,7 @@ function loadTeams() {
 function loadTeams() {
     const listItems = document.getElementsByClassName("team");
     for (var i = 0; i < listItems.length; i++) {
-        (function (copyI) {
+        (function (copyI) {                  /**Fait une deepcopy du parametre pour les fct s c<est une primitive, nvx ptr vers les meme attributs si objet.. */
                 listItems[copyI].addEventListener("click", (e) => {
                     e.target.textContent = teams[copyI];
                 });
