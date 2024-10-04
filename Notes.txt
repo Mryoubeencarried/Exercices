@@ -1,4 +1,4 @@
-Notes:
+Notes: wololo
 
 DOM:
 Document est un objet fourni par javascript, avec des propriétés et des fonctions comme tout autre objet.
