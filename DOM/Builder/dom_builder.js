@@ -54,7 +54,17 @@ const schools = [{
 function createElement(type, props, children) {
     const element = document.createElement(type);
     // TODO : Implémenter la fonction
-    element.append(children ? children[0] : []);
+    if(props) {
+        element.id = props.id ? props.id : '',
+        element.classList.add(...props.classes ? props.classes : []),
+        element.rest = props.rest;
+        if (props.rest) {
+            for (const [prop, value] of Object.entries(props.rest)) {
+                element.setAttribute(prop, value);
+            }
+        }
+    }
+    element.append(...children ? children : []);
 
     return element;
 }
@@ -66,8 +76,13 @@ function createElement(type, props, children) {
  */
 function buildSchoolCard(school) {
     // TODO
-    const card = createElement('a',
-        { id: school.id, classes: ['school-card'], rest: { href: school.link, target: '_blank' } });
+    const card = createElement('a',  ///type
+        { id: school.id, classes: ['school-card'], rest: { href: school.link, target: '_blank' } },  // Props 
+        [createElement('img', { classes: ['logo'], rest: { src: `./assets/${school.logo}` } }),  /// Childrens de anchor qui va remplir le html?.
+        createElement('div', { classes: ['info-container'] },
+            [createElement('p', { classes: ['info-name'] },
+                [school.name])])
+        ]);
     return card;
 }
 

@@ -7,6 +7,10 @@ const users = [
 ];
 
 const teams = [];
+users.forEach((teams, user) => {
+    
+    return 
+})
 console.log(teams);
 /* Valeur attendue :
 [ { team: 1, members: [ 'Michel', 'Julie' ] },

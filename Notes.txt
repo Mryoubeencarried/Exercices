@@ -1,0 +1,58 @@
+Notes:
+
+DOM:
+Document est un objet fourni par javascript, avec des propriétés et des fonctions comme tout autre objet.
+
+On peut avoir des éléments HTML dans le script javascript. Cela donne a javascript le contrôle de la page web.
+
+document.querySelector('element') permet de prendre n'importe quel élément '' de la page et le mettre dans JS en tant qu'objet. C'est un conteneur STATIQUE. (5h40)
+element.getElementsByTagName() retourne une HTMLCollection, qui est un conteneur VIVANT; les changement dans le DOM y sont reflété.
+element.addEventListener(event, gestionnaire,,options) ou event = click, mouseover, change, load, etc.
+element.removeEventListener(meme parametre que celui a remove)
+element.value return la value (Tjrs un string) de l'element.
+console.log() pour avoir le résultat de kkchose; typeof X pour avoir sont type.
+console.log(event) pour voir les événements; onkeydown 
+Event: Peux être passé en paramètre à une fonction afin qu'elle puise prendre en compte l'event. (6h30)
+Number() fct convert anything between bracket into a number.
+
+innerHTML permet d'accédé au html contenu dedans. Prend en compte TOUT le html, incluant les espace, enter, etc. du DOM.
+innerText target juste le texte en ignorant les espaces et enter.
+'.element' permet de target les classes. On peut ensuite les sauvegarder dans des variables TQ ButtonElem.
+
+
+
+
+
+
+Falsy statement:
+0,
+false,
+null,
+undefined,
+NaN,
+empty string
+
+Truthy statement:
+Non-zero numbers; 
+Non-empty strings; 
+Objects(including empty arrays {}[]), 
+Functions, dates(instance of the date object), 
+Symbols(Symbol()), 
+BigInts (i.e 1n;)
+
+
+Callback functions:
+
+Array.prototype.myMap = function(callback) {
+    const tableau = [];                         //Créé un tableau vide qui sera retourné.
+    for (let i = 0; i < this.length; i++) {     // Itère sur la taille du Array sur laquelle la fonction myMap est appelée.
+      tableau.push(callback(this[i],i, this));  // Push le résultat de la fonction callback qui sera passé par l'usagé dans arr.mymap( function () { ... } ) dans le nouveau tableau
+    }
+    return tableau;                             // return le nouveau tableau
+}
+
+In short: callback doesn’t "call itself". It’s a placeholder that represents a function, and that function is passed to myMap when it is called. 
+Inside myMap, this function is called, not the placeholder itself.
+The callback function is provided by the user when they call the myMap method.
+    The callback is a function that defines what to do with each element in the array.
+    This gives the user flexibility to transform the array in any way they want.

@@ -30,6 +30,9 @@ const shortcutManager = new Map();
 function bindEvents() {
 
     // TODO : ajouter des gestionnaires pour les boutons de contrôle
+    audio.addEventListener('.fa-arrow-left', )
+    audio.addEventListener('.fa-arrow-left', )
+    audio.addEventListener('.fa-arrow-left', )
 
     /// TODO : ajouter un gestionnaire à l'élément audio pour le déroulement d'une chanson
     audio.addEventListener('todo', () => { });

@@ -22,11 +22,19 @@ console.log(ellipse.describe()); // valeur désirée : red ellipse
     ainsi que les propriétés width, height et la fonction getArea()
 */
 function RectangleFactory(obj, width, height) {
-    const newRectangle = Object.create(obj);  // Créé un nouvel objet avec les ancients attributs, mais en dessous du prototype shape
-    newRectangle.width = width;               // Ajoute les attributs en paramètre
-    newRectangle.height = height;
-    newRectangle.getArea = function() { return this.width * this.height; } // Ajoute la nouvelle fonction
-    return newRectangle;
+     /** Pas bon, ne respecte pas le patron factory. */
+    // const newRectangle = Object.create(obj);  // Créé un nouvel objet avec les ancients attributs, mais en dessous du prototype shape
+    // newRectangle.width = width;               // Ajoute les attributs en paramètre
+    // newRectangle.height = height;
+    // newRectangle.getArea = function() { return this.width * this.height; } // Ajoute la nouvelle fonction
+    // return newRectangle;
+   
+    return {
+        ...obj,   /** ... = operatuer spread qui copy les elements de lobjet */
+        width,
+        height,
+        getArea: function () { return this.width * this.height }
+    };
 }
 
 const rectangle = new Shape('square', 'blue');
@@ -45,7 +53,9 @@ function CircleMixin(obj, radius) {
     newCircle.getArea = function() { return Math.PI*Math.pow(this.radius, 2)}
     return newCircle;
     */
-   /** Ne fonctionne pas car circle (l'obj) est déclaré const et on ne peux donc pas réassigner le nouvel objet créé a celui-ci. Il faut donc utilise object.assign */
+   /** Ne fonctionne pas car circle (l'obj) est déclaré const et on ne peux donc pas réassigner le nouvel objet créé a celui-ci. Il faut donc utilise object.assign.
+    * Également, crée un obj newcircle fait passer le prototype de null-object-shape-circle à null-object-shape-object-shape-newcircle, donc garde pas le même prototype.
+    */
    Object.assign(obj, {
     radius,
     getArea: function () { return Math.PI * Math.pow(this.radius, 2) }
@@ -59,6 +69,10 @@ console.log(circle.getArea().toFixed(2)); // 3.14
     Le code suivant lance une erreur. Expliquez pourquoi ?
     Donnez 2 solutions possibles
 */
+/** Réponse: l'objet square n'est pas de prototype Shape, dont isbigger n'est pas défini pour lui
+ * 2 solutions: 1. Il faut ajouter Shape dans la chaîne de prototypes de square
+ *              2. Faire un isBigger qui n'est pas lié au prototype de shape.
+ */
 Shape.prototype.isBigger = function (otherObj) { return this.getArea() > otherObj.getArea() };
 
 circle.isBigger(square);
