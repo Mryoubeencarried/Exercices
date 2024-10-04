@@ -6,7 +6,9 @@ Document est un objet fourni par javascript, avec des propriétés et des foncti
 On peut avoir des éléments HTML dans le script javascript. Cela donne a javascript le contrôle de la page web.
 
 document.querySelector('element') permet de prendre n'importe quel élément '' de la page et le mettre dans JS en tant qu'objet. C'est un conteneur STATIQUE. (5h40)
-element.getElementsByTagName() retourne une HTMLCollection, qui est un conteneur VIVANT; les changement dans le DOM y sont reflété.
+document.querySelectorAll('element')
+element.getElementsByTagName() (p, anchor, div etc) retourne une HTMLCollection, qui est un conteneur VIVANT; les changement dans le DOM y sont reflété.
+element.getElementById() retourne un objet qui est une reference vers un element du dom.
 element.addEventListener(event, gestionnaire,,options) ou event = click, mouseover, change, load, etc.
 element.removeEventListener(meme parametre que celui a remove)
 element.value return la value (Tjrs un string) de l'element.

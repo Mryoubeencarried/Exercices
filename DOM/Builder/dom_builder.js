@@ -75,10 +75,10 @@ function createElement(type, props, children) {
  * @returns {HTMLAnchorElement} arbre HTML qui représente une carte d'école dans une balise <a>
  */
 function buildSchoolCard(school) {
-    // TODO
+    // Doit recree le code HTML dans index en javascript; on doit donc ajouter les balises et leurs elements/enfants aproprie
     const card = createElement('a',  ///type
         { id: school.id, classes: ['school-card'], rest: { href: school.link, target: '_blank' } },  // Props 
-        [createElement('img', { classes: ['logo'], rest: { src: `./assets/${school.logo}` } }),  /// Childrens de anchor qui va remplir le html?.
+        [createElement('img', { classes: ['logo'], rest: { src: `./assets/${school.logo}` } }),  /// Childrens de anchor qui va remplir le html.
         createElement('div', { classes: ['info-container'] },
             [createElement('p', { classes: ['info-name'] },
                 [school.name])])
